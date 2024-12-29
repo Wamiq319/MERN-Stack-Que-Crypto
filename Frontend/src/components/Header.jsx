@@ -4,14 +4,14 @@ const Header = () => {
   const menuItems = ["Home", "Wallet", "About"];
 
   return (
-    <header className="fixed top-2 z-50 w-11/12 mx-auto bg-white bg-opacity-70 backdrop-blur-md border-b border-lightGray shadow-md rounded-xl">
-      <nav className="container mx-auto flex items-center justify-between py-3 px-6 md:px-10">
+    <header className="fixed  px-5 py-2 top-0 z-50 w-full mx-auto bg-white bg-opacity-70 backdrop-blur-md border-b border-lightGray shadow-md ">
+      <nav className=" flex items-center justify-between ">
         {/* Logo */}
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center">
           <img
             src={Logo}
             alt="Logo"
-            className="w-10 h-10 md:w-20 md:h-5 object-contain"
+            className="md:w-15  w-15 h-7 md:h-7 object-contain"
           />
         </div>
 
@@ -28,8 +28,7 @@ const Header = () => {
             </li>
           ))}
         </ul>
-
-        <button className="w-20 h-4 md:w-24 md:h-7 rounded-full  bg-primaryGreen font-semibold text-textBlack flex items-center justify-center">
+        <button className="px-6 py-1 hover:text-primaryGreen hover:bg-transparent hover:border hover:border-primaryGreen rounded-lg bg-primaryGreen text-lg text-white transition-all">
           <a href="#Wallet">Wallet</a>
         </button>
       </nav>

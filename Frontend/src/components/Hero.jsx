@@ -1,38 +1,55 @@
-import React from "react";
-import HeroImage from "../assets/HeroImage.png";
+import React, { useEffect } from "react";
 
 const Hero = () => {
-  return (
-    <>
-      <div className="h-screen bg-lightGreen flex flex-col md:flex-row items-center justify-center px-6 md:px-12">
-        {/* Illustration (on mobile first) */}
-        <div className="order-1 md:order-2 mt-8 md:mt-0 md:w-1/2 flex justify-center">
-          <img
-            src={HeroImage}
-            alt="Hero Illustration"
-            className="w-full max-w-md md:max-w-lg"
-          />
-        </div>
+  useEffect(() => {
+    // Initialize FinisherHeader once the component is mounted
+    new window.FinisherHeader({
+      count: 35,
+      size: {
+        min: 5,
+        max: 120,
+        pulse: 0.1,
+      },
+      speed: {
+        x: {
+          min: 0,
+          max: 0.5,
+        },
+        y: {
+          min: 0,
+          max: 1,
+        },
+      },
+      colors: {
+        background: "#07ff88",
+        particles: ["#ffffff"],
+      },
+      blending: "lighten",
+      opacity: {
+        center: 0,
+        edge: 0.6,
+      },
+      skew: 0,
+      shapes: ["c"],
+    });
+  }, []);
 
-        <div className="order-2 md:order-1 text-center md:text-left md:w-1/2 space-y-6">
-          <h1 className="text-3xl md:text-5xl font-bold text-primaryGreen">
-            Earn rewards by referring!
+  return (
+    <div className="header finisher-header w-full  z-10 py-44">
+      <div className="w-full h-full flex flex-col justify-center items-center space-y-8">
+        <div className="text-center px-15">
+          <h1 className="text-3xl text-white font-semibold leading-tight">
+            Welcome to QUE
           </h1>
-          <p className="text-textBlack text-base md:text-lg">
-            Refer and earn rewards while spreading the word. Start earning
-            today!
-          </p>
-          <div className="flex space-x-4 justify-center md:justify-start mt-6">
-            <button className="px-6 py-2 text-white bg-primaryGreen rounded-lg hover:bg-opacity-90 transition">
-              Start Referring
-            </button>
-            <button className="px-6 py-2 text-primaryGreen border border-primaryGreen rounded-lg hover:bg-primaryGreen hover:text-white transition">
-              Learn More
-            </button>
-          </div>
+          <h6 className="text-6xl text-white font-bold leading-tight">
+            Earn Rewards <br></br> By Refering!
+          </h6>
+          <button className="px-6 py-2  rounded-lg text-primaryGreen font-semibold boder-white bg-white ">
+            <a href="#Wallet">Start Reffering</a>
+          </button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

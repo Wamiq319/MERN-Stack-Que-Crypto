@@ -5,21 +5,24 @@ const App = () => {
   return (
     <>
       {/* Header/NavBar */}
-      <Header />
-      {/* 
-      <main className="mb-5 space-y-2">
-        <section id="Home">
+      <div className="HeaderWrapper flex justify-center">
+        {" "}
+        <Header />
+      </div>
+
+      <main className="mb-5 space-y-2 ">
+        <section className="w-full" id="Home">
           <Hero />
         </section>
 
-        <section id="About">
+        <section className="w-full pt-7" id="About">
           <About />
         </section>
 
-        <section id="Wallet">
+        <section className="w-full" id="Wallet">
           <Wallet />
         </section>
-      </main> */}
+      </main>
 
       <Footer />
     </>

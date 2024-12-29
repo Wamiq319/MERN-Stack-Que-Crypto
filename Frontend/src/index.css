@@ -1,14 +1,14 @@
 html {
   scroll-behavior: smooth;
 }
+.glowing-icon {
+  filter: drop-shadow(0 0 10px #07ff88) drop-shadow(0 0 20px #07ff88);
+}
+
 /* index.css */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
 
 /* Applying the global font to body */
-#root {
-  display: flex;
-  justify-content: center;
-}
 
 /* src/index.css */
 @tailwind base;

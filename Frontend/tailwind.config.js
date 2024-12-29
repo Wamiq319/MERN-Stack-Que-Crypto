@@ -17,6 +17,12 @@ module.exports = {
       fontFamily: {
         sans: ["Poppins", "sans-serif"], // Applying Poppins font family globally
       },
+      transformOrigin: {
+        center: "50% 50%",
+      },
+      rotate: {
+        y: "180deg",
+      },
     },
   },
   plugins: [],
