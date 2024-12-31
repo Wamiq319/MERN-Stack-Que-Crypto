@@ -14,7 +14,7 @@ function generateReferralId(length = 6) {
 }
 
 const userSchema = new mongoose.Schema({
-  walletNumber: { type: String, required: true, unique: true },
+  walletAddress: { type: String, required: true, unique: true },
   referralId: { type: String, required: true, unique: true },
   referredBy: { type: String, default: null },
   referrals: { type: Number, default: 0 },
@@ -26,14 +26,18 @@ const userSchema = new mongoose.Schema({
 
 // Static method to register a user
 userSchema.statics.Register = async function (
-  walletNumber,
+  walletAddress,
   ipAddress,
   referredBy
 ) {
   // Check if the user already exists
-  const existingUser = await this.findOne({ walletNumber });
+  const existingUser = await this.findOne({ walletAddress });
   if (existingUser) {
-    return { user: sanitizeUserData(existingUser), message: "User Exists" };
+    return {
+      user: sanitizeUserData(existingUser),
+      message:
+        "Welcome back! 🔐 Only one wallet per user allowed. Save your address for future use. 📱",
+    };
   }
 
   // Check for existing user by IP address
@@ -60,7 +64,7 @@ userSchema.statics.Register = async function (
 
   // Create the new user
   const newUser = new this({
-    walletNumber,
+    walletAddress,
     referralId, // Set the generated referral ID for this user
     referredBy: referredBy || null, // Set the referredBy field if the user is referred
     referrals: 0,
@@ -85,14 +89,14 @@ userSchema.statics.Register = async function (
   return {
     user: sanitizeUserData(newUser),
     message:
-      "Welcome to the platform! Your account has been successfully created.",
+      "Welcome! 🎉 Your account is ready. Save your wallet address 🔑 (only one per account allowed).",
   };
 };
 
 // Utility function to sanitize user data (exclude technical information)
 function sanitizeUserData(user) {
   return {
-    walletNumber: user.walletNumber,
+    walletAddress: user.walletAddress,
     referralId: user.referralId,
     referredBy: user.referredBy,
     referrals: user.referrals,

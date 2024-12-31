@@ -2,21 +2,25 @@ const User = require("../models/user");
 
 exports.registerUser = async (req, res) => {
   const { walletAddress, referredBy } = req.query;
-  const IpAddress = "898.167.988";
+  const IpAddress = "898.16908";
 
   if (!walletAddress) {
-    return res.status(400).json({ message: "Wallet Address is required" });
+    return res
+      .status(400)
+      .json({ user: null, message: "Wallet Address is required" });
   }
 
   // Ensure wallet number is exactly 10 characters long
   if (walletAddress.length !== 10) {
-    return res
-      .status(400)
-      .json({ message: "Wallet Address must be exactly 10 characters long" });
+    return res.status(400).json({
+      user: null,
+      message: "Wallet Address must be exactly 10 characters long",
+    });
   }
 
   if (!/^[a-zA-Z0-9]+$/.test(walletAddress)) {
     return res.status(400).json({
+      user: null,
       message: "Wallet Address must contain only alphanumeric characters",
     });
   }
