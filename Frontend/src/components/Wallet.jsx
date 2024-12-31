@@ -1,29 +1,42 @@
 import React, { useState } from "react";
+import { fetchUserByWallet } from "../api/userAPI";
 
 const Wallet = () => {
   // State for wallet number, wallet details, and visibility
   const [walletNumber, setWalletNumber] = useState("");
   const [walletDetails, setWalletDetails] = useState(null);
-  const [isWalletEntered, setIsWalletEntered] = useState(false); // Track if the wallet ID is entered
+  const [isWalletEntered, setIsWalletEntered] = useState(false);
+  const [loading, setLoading] = useState(false); // Loading state for API request
+  const [error, setError] = useState(""); // Error message for failed request
 
-  // Sample wallet data (replace with actual data from your backend)
-  const sampleWalletData = {
-    balance: 1200, // Example balance
-    totalReferred: 50, // Example total referred users
-    claimableToday: 100, // Points claimable today
-    referralLink: "https://example.com/referral-link", // Example referral link
-  };
-
-  // Handle wallet number input and simulate fetching wallet details
+  // Handle change in wallet number input field
   const handleWalletNumberChange = (e) => {
     setWalletNumber(e.target.value);
   };
 
-  const handleSubmit = () => {
-    if (walletNumber) {
-      // Simulate fetching wallet details based on the wallet number
-      setWalletDetails(sampleWalletData);
-      setIsWalletEntered(true); // Set state to show wallet details
+  // Handle submit (API request to fetch user data by wallet)
+  const handleSubmit = async () => {
+    if (!walletNumber) {
+      setError("Please enter a valid wallet address.");
+      return;
+    }
+
+    setLoading(true); // Start loading state
+    setError(""); // Reset previous error messages
+
+    try {
+      const userData = await fetchUserByWallet(walletNumber); // Fetch data from the API
+      if (userData) {
+        setWalletDetails(userData); // Set the fetched wallet details
+        setIsWalletEntered(true); // Show wallet details section
+      } else {
+        setError("No user found with this wallet address."); // Handle case where user is not found
+      }
+    } catch (err) {
+      console.error(err);
+      setError("An error occurred while fetching wallet details."); // Handle API errors
+    } finally {
+      setLoading(false); // Stop loading state
     }
   };
 
@@ -52,9 +65,12 @@ const Wallet = () => {
             <button
               onClick={handleSubmit}
               className="mt-4 px-6 py-2 text-white bg-primaryGreen rounded-lg hover:bg-opacity-90 transition w-full"
+              disabled={loading} // Disable button while loading
             >
-              Show Wallet Details
+              {loading ? "Loading..." : "Show Wallet Details"}
             </button>
+            {error && <p className="text-red-500 mt-2">{error}</p>}{" "}
+            {/* Error display */}
           </div>
         ) : (
           // Wallet Details Section

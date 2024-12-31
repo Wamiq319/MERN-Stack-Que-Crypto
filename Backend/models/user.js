@@ -33,29 +33,20 @@ userSchema.statics.Register = async function (
   // Check if the user already exists
   const existingUser = await this.findOne({ walletNumber });
   if (existingUser) {
-    return { user: existingUser, message: "User Exists" };
+    return { user: sanitizeUserData(existingUser), message: "User Exists" };
   }
 
   // Check for existing user by IP address
   const existingUserByIP = await this.findOne({
     ipAddresses: { $in: [ipAddress] },
   });
+
   if (existingUserByIP) {
     return {
       user: null,
       message:
         "Warning: Only one account per user is permitted. Please refrain from creating multiple accounts to avoid potential suspension.",
     };
-  }
-
-  // If a referral ID was provided, increment the referrer's points and referrals
-  if (referredBy) {
-    const referrer = await this.findOne({ referralId: referredBy });
-    if (referrer) {
-      referrer.referrals += 1; // Increment the referrer's referral count
-      referrer.points += 10; // Award points for the referral
-      await referrer.save(); // Save the updated referrer data
-    }
   }
 
   // Generate a unique referral ID
@@ -78,14 +69,36 @@ userSchema.statics.Register = async function (
     ipAddresses: [ipAddress],
   });
 
+  // If a referral ID was provided, increment the referrer's points and referrals
+  if (referredBy) {
+    const referrer = await this.findOne({ referralId: referredBy });
+    if (referrer) {
+      referrer.referrals += 1; // Increment the referrer's referral count
+      referrer.points += 10; // Award points for the referral
+      await referrer.save(); // Save the updated referrer data
+    }
+  }
+
   // Save the new user's data
   await newUser.save();
 
   return {
-    user: newUser,
+    user: sanitizeUserData(newUser),
     message:
       "Welcome to the platform! Your account has been successfully created.",
   };
 };
+
+// Utility function to sanitize user data (exclude technical information)
+function sanitizeUserData(user) {
+  return {
+    walletNumber: user.walletNumber,
+    referralId: user.referralId,
+    referredBy: user.referredBy,
+    referrals: user.referrals,
+    points: user.points,
+    dailyClaims: user.dailyClaims,
+  };
+}
 
 module.exports = mongoose.model("User", userSchema);
