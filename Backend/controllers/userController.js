@@ -2,15 +2,22 @@ const User = require("../models/user");
 
 exports.registerUser = async (req, res) => {
   const { walletAddress, referredBy } = req.query;
-  const IpAddress = "898.16908";
 
+  // Step 1: Get the correct client IP address (considering reverse proxy)
+  let IpAddress = req.ip;
+
+  // Check if we are behind a proxy (X-Forwarded-For) and use the first IP in the list
+  if (req.headers["x-forwarded-for"]) {
+    IpAddress = req.headers["x-forwarded-for"].split(",")[0].trim();
+  }
+
+  // Step 2: Validation for wallet address
   if (!walletAddress) {
     return res
       .status(400)
       .json({ user: null, message: "Wallet Address is required" });
   }
 
-  // Ensure wallet number is exactly 10 characters long
   if (walletAddress.length !== 10) {
     return res.status(400).json({
       user: null,
@@ -27,6 +34,7 @@ exports.registerUser = async (req, res) => {
 
   const referrer = referredBy || null;
 
+  // Step 3: Register the user with the extracted IP address
   try {
     const { user, message } = await User.Register(
       walletAddress,
@@ -39,7 +47,7 @@ exports.registerUser = async (req, res) => {
       user: user,
     });
   } catch (error) {
-    // Catch any other errors
+    // Step 4: Handle errors
     res.status(400).json({ message: error.message });
   }
 };

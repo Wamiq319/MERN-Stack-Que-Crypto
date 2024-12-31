@@ -6,20 +6,19 @@ const App = () => {
     <>
       {/* Header/NavBar */}
       <div className="HeaderWrapper flex justify-center">
-        {" "}
         <Header />
       </div>
 
-      <main className="mb-5 space-y-2 ">
-        <section className="w-full" id="Home">
+      <main className="space-y-2 ">
+        <section className="w-full h-svh overflow-hidden" id="Home">
           <Hero />
         </section>
 
-        <section className="w-full pt-7" id="About">
+        <section className="w-full p-7 bg-white" id="About">
           <About />
         </section>
 
-        <section className="w-full" id="Wallet">
+        <section className="w-full p-13 pt-16" id="Wallet">
           <Wallet />
         </section>
       </main>

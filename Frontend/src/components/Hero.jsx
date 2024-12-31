@@ -35,8 +35,8 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="header finisher-header w-full  z-10 py-44">
-      <div className="w-full h-full flex flex-col justify-center items-center space-y-8">
+    <div className="header finisher-header w-full  z-10 py-44 overflow-hidden">
+      <div className="w-full h-full flex flex-col justify-center items-center space-y-8 overflow-hidden">
         <div className="text-center px-15">
           <h1 className="text-3xl text-white font-semibold leading-tight">
             Welcome to QUE

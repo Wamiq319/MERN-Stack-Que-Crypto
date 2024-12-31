@@ -106,7 +106,7 @@ const Wallet = () => {
               </p>
             </div>
 
-            <div className="flex justify-between gap-4 mt-8">
+            <div className="flex justify-between gap-3 mt-8">
               <div className="w-1/3 bg-white p-4 rounded-lg shadow-md">
                 <h4 className="text-lg font-semibold text-primaryGreen">
                   Wallet Balance
@@ -137,21 +137,24 @@ const Wallet = () => {
             </div>
 
             <div className="mt-4 text-center">
-              <p className="text-lg text-textBlack">Referral Link</p>
-              <a
-                href={referralLink}
-                className="text-primaryGreen hover:underline"
-              >
-                {referralLink}
-              </a>
+              <p className="text-center text-lg text-primaryGreen ">
+                <span className="text-textBlack">Wallet Address:</span>
+                {userDetails.walletAddress}
+              </p>
+              <p className="text-lg text-textBlack">
+                Referral Link:{" "}
+                <a
+                  href={referralLink}
+                  className="text-primaryGreen hover:underline"
+                >
+                  {referralLink}
+                </a>
+              </p>
             </div>
 
             <div className="flex justify-between mt-6 space-x-4">
               <button className="px-6 py-2 text-white bg-primaryGreen rounded-lg w-full">
                 Withdraw
-              </button>
-              <button className="px-6 py-2 text-primaryGreen border border-primaryGreen rounded-lg w-full">
-                Records
               </button>
             </div>
             {message && (
