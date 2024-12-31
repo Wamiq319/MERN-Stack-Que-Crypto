@@ -27,6 +27,10 @@ const Wallet = () => {
       setMessage("Wallet address contain 10charcters only");
       return;
     }
+    if (!/^[a-zA-Z0-9]+$/.test(walletAddress)) {
+      setMessage("Wallet Address must contain only alphanumeric characters");
+      return;
+    }
 
     setLoading(true);
     setUserDetails(null); // Reset userDetails before fetching
@@ -56,8 +60,12 @@ const Wallet = () => {
           );
         }
       })
-      .catch(() => {
-        setMessage("Unable to complete the request. Please try again.");
+      .catch((error) => {
+        if (error.response.data.message) {
+          setMessage(error.response.data.message);
+        } else {
+          setMessage("Unable to complete the request. Please try again.");
+        }
       })
       .finally(() => {
         setLoading(false);
@@ -85,7 +93,7 @@ const Wallet = () => {
             />
             <button
               onClick={handleSubmit}
-              className="mt-4 px-6 py-2 text-white bg-primaryGreen rounded-lg w-full"
+              className="px-6 py-2 hover:text-primaryGreen hover:bg-transparent hover:border hover:border-primaryGreen rounded-lg bg-primaryGreen text-lg w-full text-white transition-all mt-2"
               disabled={loading}
             >
               {loading ? "Loading..." : "Show Wallet Details"}
@@ -153,7 +161,7 @@ const Wallet = () => {
             </div>
 
             <div className="flex justify-between mt-6 space-x-4">
-              <button className="px-6 py-2 text-white bg-primaryGreen rounded-lg w-full">
+              <button className="px-6 py-2 hover:text-primaryGreen hover:bg-transparent hover:border hover:border-primaryGreen rounded-lg bg-primaryGreen text-lg w-full text-white transition-all">
                 Withdraw
               </button>
             </div>
