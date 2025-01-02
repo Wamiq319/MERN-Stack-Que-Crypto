@@ -35,16 +35,16 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="header finisher-header w-full  z-10 py-44 overflow-hidden">
+    <div className="header finisher-header w-full  z-10 md:py-40  py-20 overflow-hidden">
       <div className="w-full h-full flex flex-col justify-center items-center space-y-8 overflow-hidden">
         <div className="text-center px-15">
-          <h1 className="text-3xl text-white font-semibold leading-tight">
+          <h1 className="md:text-3xl text-xl text-white font-semibold leading-tight">
             Welcome to QUE
           </h1>
-          <h6 className="text-6xl text-white font-bold leading-tight">
+          <h6 className="md:text-6xl text-3xl text-white font-bold leading-tight">
             Earn Rewards <br></br> By Refering!
           </h6>
-          <button className="px-6 py-2  rounded-lg text-primaryGreen font-semibold boder-white bg-white ">
+          <button className="mt-4 md:px-6 md:py-2 px-3 py-1  rounded-lg text-primaryGreen font-semibold boder-white bg-white ">
             <a href="#Wallet">Start Reffering</a>
           </button>
         </div>

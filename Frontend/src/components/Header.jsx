@@ -5,49 +5,25 @@ const Header = () => {
   const menuItems = ["Home", "Wallet", "About"];
   const [activeSection, setActiveSection] = useState(""); // Track active section
 
-  // // Function to handle scroll events
-  // const handleScroll = () => {
-  //   const sections = document.querySelectorAll("section");
-  //   let currentSection = "";
-
-  //   sections.forEach((section) => {
-  //     const rect = section.getBoundingClientRect();
-  //     console.log(rect);
-  //     if (rect.top <= 120 && rect.bottom >= 120) {
-  //       currentSection = section.id; // Update active section when it's in view
-  //     }
-  //   });
-
-  //   setActiveSection(currentSection); // Update the active section state
-  // };
-
-  // useEffect(() => {
-  //   // Listen for scroll events
-  //   window.addEventListener("scroll", handleScroll);
-
-  //   // Cleanup listener on component unmount
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
-
   return (
-    <header className="fixed px-5 py-2 top-0 z-50 w-full mx-auto bg-white bg-opacity-70 backdrop-blur-md border-b border-lightGray shadow-md">
-      <nav className="flex items-center justify-between">
+    <header className="fixed top-0 z-50 w-svw mx-auto bg-white bg-opacity-70 backdrop-blur-md border-b border-lightGray shadow-md">
+      <nav className="flex py-3">
         {/* Logo */}
-        <div className="flex items-center">
+        <div className="flex-1 flex justify-start items-center">
           <img
             src={Logo}
             alt="Logo"
-            className="md:w-15 w-15 h-7 md:h-7 object-contain"
+            className="mx-2 md:mx-5 w-14  md:w-28 object-contain"
           />
         </div>
 
         {/* Menu Items */}
-        <ul className="flex space-x-4 md:space-x-8">
+        <ul className="flex-1 space-x-2 md:space-x-6 flex justify-center items-center">
           {menuItems.map((item, index) => (
             <li key={index}>
               <a
                 href={`#${item}`}
-                className={`text-sm md:text-lg font-semibold text-textBlack hover:text-primaryGreen transition-all duration-200 ${
+                className={`text-xs sm:text-sm md:text-lg font-semibold text-textBlack hover:text-primaryGreen transition-all duration-200 ${
                   activeSection === item ? "text-primaryGreen" : ""
                 }`}
               >
@@ -56,9 +32,13 @@ const Header = () => {
             </li>
           ))}
         </ul>
-        <button className="px-6 py-1 hover:text-primaryGreen hover:bg-transparent hover:border hover:border-primaryGreen rounded-lg bg-primaryGreen text-lg text-white transition-all">
-          <a href="#Wallet">Wallet</a>
-        </button>
+
+        {/* Button */}
+        <div className="flex-1 flex justify-end items-center">
+          <button className="mx-3 px-3 py-1 text-xs sm:text-sm md:text-lg hover:text-primaryGreen hover:bg-transparent hover:border hover:border-primaryGreen rounded-lg bg-primaryGreen text-white transition-all">
+            <a href="#Wallet">Wallet</a>
+          </button>
+        </div>
       </nav>
     </header>
   );

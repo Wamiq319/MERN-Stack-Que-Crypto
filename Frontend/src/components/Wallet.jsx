@@ -179,10 +179,10 @@ const Wallet = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-1 bg-transparent rounded-lg">
+    <div className="max-w-4xl mx-auto px-4 py-1 bg-transparent rounded-lg">
       <div
         style={{ boxShadow: "0 1px 10px rgba(7, 255, 130, 0.4)" }}
-        className="relative z-10 bg-white px-10 py-2 rounded-lg shadow-xl space-y-6"
+        className="relative z-10 bg-white px-3 py-2 rounded-lg shadow-xl space-y-6"
       >
         {/* Step 5: Show input form if user details are not available */}
         {!userDetails && (
@@ -191,17 +191,18 @@ const Wallet = () => {
               Enter Wallet Address
             </h2>
 
-            <div className="flex items-center space-x-4">
+            <div className="flex justify-center items-center space-x-2 w-full flex-wrap">
               <input
                 type="text"
                 value={walletAddress || ""}
                 onChange={handleWalletAddressChange}
-                className="mt-4 px-4 py-2 border rounded-md w-[80%] h-12 focus:border-primaryGreen"
+                className="mt-4 px-4 py-2 border rounded-md flex-1 min-w-[200px] h-12 focus:border-primaryGreen"
                 placeholder="Enter your wallet address"
               />
+
               <button
                 onClick={generateWalletAddress}
-                className="px-6 py-2 text-sm text-primaryGreen border border-primaryGreen rounded-lg w-[17%] h-12"
+                className="mt-4 px-6 py-2 text-sm text-primaryGreen border border-primaryGreen rounded-lg min-w-[120px] h-12"
               >
                 Generate
               </button>

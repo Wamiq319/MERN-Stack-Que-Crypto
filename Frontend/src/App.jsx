@@ -10,7 +10,7 @@ const App = () => {
       </div>
 
       <main className="space-y-2 ">
-        <section className="w-full h-svh overflow-hidden" id="Home">
+        <section className="w-full overflow-hidden" id="Home">
           <Hero />
         </section>
 
@@ -18,7 +18,7 @@ const App = () => {
           <About />
         </section>
 
-        <section className="w-full p-13 pt-16" id="Wallet">
+        <section className="w-full p-13" id="Wallet">
           <Wallet />
         </section>
       </main>
