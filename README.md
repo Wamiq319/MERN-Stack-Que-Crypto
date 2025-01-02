@@ -2,86 +2,79 @@
 
 ## **Project Overview**
 
-This project is a **Referral and Earn** system that allows users to add a wallet address and generate a referral link. Users can share their referral links with others, and for every successful referral, the user earns points. The system also displays the user's balance, which increases as their referral link is used.
+The **Referral and Earn System** is a simple web application designed to allow users to:
+
+- **Add a wallet address**
+- **Generate a unique referral link** associated with that wallet address
+- **Track their balance**, which increases when others use their referral link
+- **Earn points** when successful referrals occur
+
+This system focuses on the referral mechanism, without any integration with third-party apps like Telegram. It is a stand-alone app to handle user referrals and point accumulation.
+
+---
 
 ## **Problem Statement**
 
-The goal of this project is to create a simple webpage where users can:
+The goal of this project is to provide a straightforward solution where users can:
 
-1. **Add a wallet address**.
-2. **Generate a unique referral link** for that wallet address.
-3. **View balance details** associated with their referral link.
-4. **Earn points** when someone uses their referral link to visit the page.
+1. Add a wallet address to their profile
+2. Generate and share a unique referral link
+3. View their balance and track earnings from successful referrals
+4. Earn points for each successful referral
 
-The system will not be linked with any third-party apps like Telegram. It is a stand-alone web app focused solely on the referral and earning mechanism.
+---
 
 ## **Inspiration**
 
-The following websites were used as inspiration for this project suugested by client:
+The system’s concept and flow were inspired by the following platforms:
 
 - [NFT Sea](https://web.archive.org/web/20211006140559/http://nftsea.net/)
 - [Solfi](https://solfi.pro/?1A094)
 
-These sites provided the basic concept and flow for generating referral links associated with wallet addresses and displaying balance information.
+These sites provided ideas for generating referral links tied to wallet addresses and displaying balance information.
+
+---
 
 ## **Tech Stack**
 
 ### **Frontend**:
 
-- **React**: Used for building the user interface as a single-page application (SPA), offering a fast and dynamic user experience. React allows us to break the page into reusable components for easy maintenance and scalability.
-- **Tailwind CSS**: A utility-first CSS framework used to style the web app. It provides a highly customizable, minimalistic, and responsive design, which fits the project's need for a clean interface.
+- **React**: For building a dynamic, single-page user interface. React allows the creation of reusable components, making the app easy to maintain and scale.
+- **Tailwind CSS**: A utility-first CSS framework used to create a responsive, minimalist, and customizable design.
 
 ### **Backend**:
 
-- **Node.js with Express**: The backend is built using Node.js and the Express framework. Express provides a simple and robust API to handle user requests such as adding a wallet ID, generating a referral link, and fetching user balance.
-- **MongoDB (Cloud - MongoDB Atlas)**: MongoDB is used to store user data such as wallet IDs, referral links, points, and balance details. MongoDB Atlas is a managed cloud database, which makes it easy to use and scale without requiring technical expertise. This ensures that the client, even with a non-technical background, can efficiently manage and maintain the app.
-
-### **Authentication**:
-
-- **JWT (JSON Web Tokens)**: Used for authenticating and securely managing user sessions. JWT tokens help in keeping the app stateless and providing secure access to the referral system.
-
-### **Hosting**:
-
-- **Frontend Hosting**: Vercel or Netlify will be used to host the React frontend. Both services allow easy integration with GitHub and provide free hosting with automatic deployments.
-- **Backend Hosting**: Heroku or DigitalOcean will be used to deploy the Node.js backend. Both offer easy-to-use deployment solutions with good scalability options.
+- **Node.js with Express**: The backend uses Node.js and Express to handle user requests like adding wallet addresses, generating referral links, and fetching user balances.
+- **MongoDB (Atlas)**: A document-oriented NoSQL database. MongoDB’s flexibility and scalability make it ideal for this project. MongoDB Atlas offers a managed cloud service with automatic backups and enhanced security features.
 
 ---
 
-## **Reason for the Chosen Tech Stack**
+## **Security Features**
 
-1. **React**:
+### **Frontend**:
 
-   - **Why React?** React's component-based structure makes it easy to develop and maintain the user interface. It’s a powerful library for building dynamic and high-performance UIs, ideal for single-page applications like this one.
+- Frontend validation ensures proper format for wallet addresses and data to minimize unnecessary backend requests.
 
-2. **Tailwind CSS**:
+### **Backend**:
 
-   - **Why Tailwind?** Tailwind CSS allows for a streamlined and responsive design with minimal effort. It’s highly customizable, making it ideal for the minimalistic design required for this project. By using utility classes, we can quickly style the components and make the interface flexible across devices.
+- A robust security layer validates incoming data on every route to ensure it meets application standards before interacting with the database.
 
-3. **Node.js with Express**:
+---
 
-   - **Why Node.js?** Node.js is a fast, non-blocking, event-driven environment perfect for handling multiple users interacting with the referral system simultaneously. Express simplifies the routing and handling of API requests, making it the go-to choice for backend development.
+## **Special Notes for Developers**
 
-4. **MongoDB (Atlas)**:
-
-   - **Why MongoDB?** MongoDB's document-oriented approach is flexible and ideal for storing user data without worrying about a rigid schema. It scales well, and with MongoDB Atlas, we get a fully managed cloud database with automatic backups and security features.
-
-5. **JWT Authentication**:
-
-   - **Why JWT?** JWT allows for stateless, scalable, and secure user authentication. It helps us maintain user sessions without relying on a traditional server-side session management system.
-
-6. **Hosting**:
-   - **Vercel/Netlify**: These platforms make it easy to deploy and manage static front-end applications with seamless integration with GitHub. They provide a great environment for hosting React apps with fast loading times.
-   - **Heroku/DigitalOcean**: Both platforms allow easy deployment of backend services. Heroku is simple and fast to deploy with its Git integration, while DigitalOcean offers more control for scalable infrastructure.
+- The system includes a daily claim feature and a route for updating reward claims. If additional claim options are needed (e.g., monthly or one-time claims), you can extend the functionality by adding a few fields to the database. No extra logic is necessary, as the system is designed for scalability.
 
 ---
 
 ## **Installation Instructions**
 
-To get the project up and running locally:
+To get the project up and running locally, follow these steps:
 
 ### **Clone the Repository**:
 
 ```bash
-git clone https://github.com/your-username/referral-and-earn-system.git
-cd referral-and-earn-system
+git clone https://github.com/your-username/Refer-Earn-System-Que.git
+cd Frontend
 ```
+Check Frontend and Backend folder and there Readme files for further details
