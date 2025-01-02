@@ -74,5 +74,7 @@ To get the project up and running locally, follow these steps:
 ### **Clone the Repository**:
 
 ```bash
-git clone https://github.com/your-username/referral-and-earn-system.git
+git clone https://github.com/your-username/Refer-Earn-System-Que.git
 cd referral-and-earn-system
+```
+Check Frontend and Backend folder and there Readme files for further details
