@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Countdown from "./CountDown";
+import Countdown from "./Countdown"
 const Wallet = () => {
   // Step 1: Initialize state variables
   const walletaddress = localStorage.getItem("walletAddress") || undefined;
