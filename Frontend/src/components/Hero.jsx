@@ -4,7 +4,7 @@ const Hero = () => {
   useEffect(() => {
     // Initialize FinisherHeader once the component is mounted
     new window.FinisherHeader({
-      count: 35,
+      count: 100,
       size: {
         min: 5,
         max: 120,

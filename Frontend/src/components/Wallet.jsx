@@ -179,7 +179,7 @@ const Wallet = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-1 bg-transparent rounded-lg">
+    <div className="max-w-4xl mx-auto px-4 py-6 bg-transparent rounded-lg">
       <div
         style={{ boxShadow: "0 1px 10px rgba(7, 255, 130, 0.4)" }}
         className="relative z-10 bg-white px-3 py-2 rounded-lg shadow-xl space-y-6"
