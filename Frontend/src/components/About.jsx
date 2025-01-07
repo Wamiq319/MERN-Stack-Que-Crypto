@@ -5,9 +5,12 @@ import fast from "../assets/fast.svg";
 
 const About = () => {
   return (
-    <div className="bg-white text-center text-primaryGreen py-8 px-4 sm:px-8">
+    <div className="bg-white text-center  py-4 px-4 sm:px-8">
       {/* Heading */}
-      <h2 className="text-2xl sm:text-3xl font-bold mb-4">About Us</h2>
+ 
+      <h2 className="text-3xl sm:text-5xl font-black  text-transparent bg-clip-text bg-gradient-to-r from-secondaryBlue   to-primaryGreen">
+      About Quee
+</h2>
 
       {/* About Us Description */}
       <p className="text-base sm:text-lg max-w-3xl mx-auto text-textBlack mb-8">
@@ -15,7 +18,7 @@ const About = () => {
         Earn" program allows you to earn rewards by sharing our platform with
         friends and family. It’s easy, minimal, and rewarding—just refer, earn,
         and enjoy. At Que Amkre, we value connections and believe in rewarding
-        those who help us grow. Start sharing today and make the most out of
+        those who help us grow. Start sharing today and make the most of
         every referral!
       </p>
 

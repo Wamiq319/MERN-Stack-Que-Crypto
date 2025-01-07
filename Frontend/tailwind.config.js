@@ -7,8 +7,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primaryGreen: "#07ff88", // Custom primary green color
-        lightGreen: "#E6F8E6", // Custom light green color
+        primaryGreen: "#b9e622", // Custom primary green color
+        secondaryBlue: "#366ce3", //Custom blue color
         darkGreen: "#008037", // Custom dark green color
         white: "#FFFFFF", // White (already default in Tailwind)
         darkGray: "#808080", // Custom dark gray color

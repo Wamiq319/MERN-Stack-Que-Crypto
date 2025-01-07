@@ -6,7 +6,7 @@ const Header = () => {
   const [activeSection, setActiveSection] = useState(""); // Track active section
 
   return (
-    <header className="fixed top-0 z-50 w-svw mx-auto bg-white bg-opacity-70 backdrop-blur-md border-b border-lightGray shadow-md">
+    <header className="z-50 w-svw mx-auto">
       <nav className="flex py-3">
         {/* Logo */}
         <div className="flex-1 flex justify-start items-center">
@@ -35,7 +35,7 @@ const Header = () => {
 
         {/* Button */}
         <div className="flex-1 flex justify-end items-center">
-          <button className="mx-3 px-3 py-1 text-xs sm:text-sm md:text-lg hover:text-primaryGreen hover:bg-transparent hover:border hover:border-primaryGreen rounded-lg bg-primaryGreen text-white transition-all">
+        <button className="mx-3 px-3 py-1 text-xs sm:text-sm md:text-lg hover:text-primaryGreen hover:bg-transparent hover:border hover:border-primaryGreen rounded-lg bg-primaryGreen text-white transition-all">
             <a href="#Wallet">Wallet</a>
           </button>
         </div>
