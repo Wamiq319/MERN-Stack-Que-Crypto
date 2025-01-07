@@ -288,7 +288,7 @@ const Wallet = () => {
 
             {/* Step 11: Provide option to withdraw */}
             <div className="flex justify-between mt-6 space-x-4">
-              <button className="px-6 py-2 hover:text-primaryGreen hover:bg-transparent hover:border hover:border-primaryGreen rounded-lg bg-primaryGreen text-lg w-full text-white transition-all">
+              <button className="px-6 py-2 hover:text-primaryGreen hover:bg-transparent hover:border hover:border-primaryGreen rounded-lg bg-secondaryBlue text-lg w-full text-white transition-all">
                 Withdraw
               </button>
             </div>
