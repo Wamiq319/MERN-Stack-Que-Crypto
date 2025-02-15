@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Countdown from "./CountDown";
+import Countdown from "./Countdown";
 const Wallet = () => {
   // Step 1: Initialize state variables
   const walletaddress = localStorage.getItem("walletAddress") || undefined;
@@ -187,7 +187,7 @@ const Wallet = () => {
         {/* Step 5: Show input form if user details are not available */}
         {!userDetails && (
           <div className="text-center">
-            <h2 className="text-3xl font-bold text-primaryGreen">
+            <h2 className="text-3xl font-bold secondaryBlue">
               Enter Wallet Address
             </h2>
 
@@ -196,7 +196,7 @@ const Wallet = () => {
                 type="text"
                 value={walletAddress || ""}
                 onChange={handleWalletAddressChange}
-                className="mt-4 px-4 py-2 border rounded-md flex-1 min-w-[200px] h-12 focus:border-primaryGreen"
+                className="mt-4 px-4 py-2 border rounded-md flex-1 min-w-[200px] h-12 focus:border-secondaryBlue"
                 placeholder="Enter your wallet address"
               />
 
@@ -210,7 +210,7 @@ const Wallet = () => {
 
             <button
               onClick={handleSubmit}
-              className="px-6 py-2 hover:text-primaryGreen hover:bg-transparent hover:border hover:border-primaryGreen rounded-lg bg-primaryGreen text-lg w-full text-white transition-all mt-2"
+              className="px-6 py-2 hover:text-primaryGreen hover:bg-transparent hover:border hover:border-primaryGreen rounded-lg bg-secondaryBlue text-lg w-full text-white transition-all mt-2"
               disabled={loading}
             >
               {loading ? "Loading..." : "Show Wallet Details"}
@@ -223,7 +223,7 @@ const Wallet = () => {
         {userDetails && !loading && (
           <div className="relative z-10 mt-8 space-y-6">
             <div className="text-center">
-              <h3 className="text-2xl sm:text-xl md:text-3xl font-semibold text-primaryGreen">
+              <h3 className="text-2xl font-semibold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-secondaryBlue  to-primaryGreen ">
                 Wallet Details
               </h3>
               <p className="text-lg sm:text-base text-textBlack mt-2">
@@ -233,27 +233,27 @@ const Wallet = () => {
 
             <div className="flex justify-between md:gap-3 gap-1  mt-8">
               {/* Step 7: Show wallet balance */}
-              <div className="w-1/3 sm:w-1/4 bg-white p-2 rounded-lg shadow-md">
-                <h4 className="text-lg sm:text-base font-semibold text-primaryGreen">
-                  Balance
+              <div className="w-1/3 bg-white p-4 rounded-lg shadow-md">
+                <h4 className="text-lg font-semibold  leading-tight text-transparent bg-clip-text bg-gradient-to-r from-secondaryBlue  to-primaryGreen">
+                  Wallet Balance
                 </h4>
                 <p className="text-xl sm:text-lg text-textBlack">
                   {userDetails.points}
                 </p>
               </div>
               {/* Step 8: Show total referrals */}
-              <div className="w-1/3 sm:w-1/4 bg-white p-2 rounded-lg shadow-md">
-                <h4 className="text-lg sm:text-base font-semibold text-primaryGreen">
-                  Referred
+              <div className="w-1/3 bg-white p-4 rounded-lg shadow-md">
+                <h4 className="text-lg font-semibold  leading-tight text-transparent bg-clip-text bg-gradient-to-r from-secondaryBlue  to-primaryGreen">
+                  Total Referred
                 </h4>
                 <p className="text-xl sm:text-lg text-textBlack">
                   {userDetails.referrals}
                 </p>
               </div>
               {/* Step 9: Show today's claim status */}
-              <div className="w-1/3 sm:w-1/4 bg-white p-2 rounded-lg shadow-md">
-                <h4 className="text-lg sm:text-base font-semibold text-primaryGreen">
-                  Daily
+              <div className="w-1/3 bg-white p-4 rounded-lg shadow-md">
+                <h4 className="text-lg font-semibold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-secondaryBlue  to-primaryGreen ">
+                  Daily Claim
                 </h4>
                 {userDetails.canClaimToday == true ? (
                   <div className="flex justify-between items-center">
@@ -275,7 +275,7 @@ const Wallet = () => {
 
             {/* Step 10: Display wallet address and referral link */}
             <div className="mt-4 text-center">
-              <p className="text-center text-lg sm:text-base text-primaryGreen">
+              <p className="text-center text-lg  text-secondaryBlue">
                 <span className="text-textBlack">Wallet Address:</span>
                 {userDetails.walletAddress}
               </p>
@@ -283,7 +283,7 @@ const Wallet = () => {
                 Referral Link:{" "}
                 <a
                   href={referralLink}
-                  className="text-primaryGreen hover:underline"
+                  className="text-secondaryBlue hover:underline"
                 >
                   {referralLink}
                 </a>
@@ -292,7 +292,7 @@ const Wallet = () => {
 
             {/* Step 11: Provide option to withdraw */}
             <div className="flex justify-between mt-6 space-x-4">
-              <button className="px-6 py-2 hover:text-primaryGreen hover:bg-transparent hover:border hover:border-primaryGreen rounded-lg bg-primaryGreen text-lg sm:text-base w-full text-white transition-all">
+              <button className="px-6 py-2 hover:text-primaryGreen hover:bg-transparent hover:border hover:border-primaryGreen rounded-lg bg-secondaryBlue text-lg w-full text-white transition-all">
                 Withdraw
               </button>
             </div>

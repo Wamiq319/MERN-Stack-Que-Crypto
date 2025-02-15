@@ -2,7 +2,7 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
-const userRoutes = require("./Routes/userRoutes");
+const userRoutes = require("./routes/userRoutes");
 
 // Step 1: Use environment variables
 const PORT = process.env.PORT || 5000; // Fallback to 5000 if PORT is not set
