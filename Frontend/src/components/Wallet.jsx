@@ -223,42 +223,46 @@ const Wallet = () => {
         {userDetails && !loading && (
           <div className="relative z-10 mt-8 space-y-6">
             <div className="text-center">
-              <h3 className="text-2xl font-semibold text-primaryGreen">
+              <h3 className="text-2xl sm:text-xl md:text-3xl font-semibold text-primaryGreen">
                 Wallet Details
               </h3>
-              <p className="text-lg text-textBlack mt-2">
+              <p className="text-lg sm:text-base text-textBlack mt-2">
                 Your current balance and referral stats
               </p>
             </div>
 
-            <div className="flex justify-between gap-3 mt-8">
+            <div className="flex justify-between md:gap-3 gap-1  mt-8">
               {/* Step 7: Show wallet balance */}
-              <div className="w-1/3 bg-white p-4 rounded-lg shadow-md">
-                <h4 className="text-lg font-semibold text-primaryGreen">
-                  Wallet Balance
+              <div className="w-1/3 sm:w-1/4 bg-white p-2 rounded-lg shadow-md">
+                <h4 className="text-lg sm:text-base font-semibold text-primaryGreen">
+                  Balance
                 </h4>
-                <p className="text-xl text-textBlack">{userDetails.points}</p>
+                <p className="text-xl sm:text-lg text-textBlack">
+                  {userDetails.points}
+                </p>
               </div>
               {/* Step 8: Show total referrals */}
-              <div className="w-1/3 bg-white p-4 rounded-lg shadow-md">
-                <h4 className="text-lg font-semibold text-primaryGreen">
-                  Total Referred
+              <div className="w-1/3 sm:w-1/4 bg-white p-2 rounded-lg shadow-md">
+                <h4 className="text-lg sm:text-base font-semibold text-primaryGreen">
+                  Referred
                 </h4>
-                <p className="text-xl text-textBlack">
+                <p className="text-xl sm:text-lg text-textBlack">
                   {userDetails.referrals}
                 </p>
               </div>
               {/* Step 9: Show today's claim status */}
-              <div className="w-1/3 bg-white p-4 rounded-lg shadow-md">
-                <h4 className="text-lg font-semibold text-primaryGreen">
-                  Daily Claim
+              <div className="w-1/3 sm:w-1/4 bg-white p-2 rounded-lg shadow-md">
+                <h4 className="text-lg sm:text-base font-semibold text-primaryGreen">
+                  Daily
                 </h4>
                 {userDetails.canClaimToday == true ? (
                   <div className="flex justify-between items-center">
-                    <p className="text-xl text-textBlack">10 Points</p>
+                    <p className="text-xl sm:text-lg text-textBlack">
+                      10 Points
+                    </p>
                     <button
                       onClick={handledailyClaim}
-                      className="px-6 py-2 text-sm text-primaryGreen border border-primaryGreen rounded-lg"
+                      className="px-6 py-2 text-sm sm:text-base text-primaryGreen border border-primaryGreen rounded-lg"
                     >
                       Claim
                     </button>
@@ -271,11 +275,11 @@ const Wallet = () => {
 
             {/* Step 10: Display wallet address and referral link */}
             <div className="mt-4 text-center">
-              <p className="text-center text-lg text-primaryGreen ">
+              <p className="text-center text-lg sm:text-base text-primaryGreen">
                 <span className="text-textBlack">Wallet Address:</span>
                 {userDetails.walletAddress}
               </p>
-              <p className="text-lg text-textBlack">
+              <p className="text-lg sm:text-base text-textBlack">
                 Referral Link:{" "}
                 <a
                   href={referralLink}
@@ -288,7 +292,7 @@ const Wallet = () => {
 
             {/* Step 11: Provide option to withdraw */}
             <div className="flex justify-between mt-6 space-x-4">
-              <button className="px-6 py-2 hover:text-primaryGreen hover:bg-transparent hover:border hover:border-primaryGreen rounded-lg bg-primaryGreen text-lg w-full text-white transition-all">
+              <button className="px-6 py-2 hover:text-primaryGreen hover:bg-transparent hover:border hover:border-primaryGreen rounded-lg bg-primaryGreen text-lg sm:text-base w-full text-white transition-all">
                 Withdraw
               </button>
             </div>

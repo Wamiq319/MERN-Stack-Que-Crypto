@@ -37,9 +37,12 @@ const Countdown = ({ timeLeft }) => {
   return (
     <div className="countdown">
       {!isExpired ? (
-        <p className="text-lg flex space-x-2">
-          <p className="text-textBlack font-bold">Claim in:</p>
-          <p className="text-primaryGreen">{formatTime(time)}</p>
+        <p
+          className="text-lg flex md:space-x-2 space-x-0
+        "
+        >
+          <p className="text-textBlack font-bold md:block hidden">Claim in:</p>
+          <p className="text-primaryGreen ">{formatTime(time)}</p>
         </p>
       ) : (
         <p className="text-lg text-black">Time's up!</p>
