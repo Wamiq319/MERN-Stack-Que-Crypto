@@ -268,7 +268,14 @@ const Wallet = () => {
                     </button>
                   </div>
                 ) : (
-                  <Countdown timeLeft={userDetails.canClaimToday} />
+                  <p className="  flex md:space-x-2 space-x-0">
+                    <Countdown
+                      format="hour"
+                      textSize="text-sm"
+                      digitSize="text-xl font-semibold"
+                      timeLeft={userDetails.canClaimToday}
+                    />
+                  </p>
                 )}
               </div>
             </div>
