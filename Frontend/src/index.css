@@ -1,26 +1,29 @@
 html {
   scroll-behavior: smooth;
 }
+body {
+  overflow-x: hidden;
+}
 
 /* Custom gradient border with animation */
 .gradient-border {
   border: 2px solid transparent; /* Initial transparent border */
   border-radius: 49px; /* Ensure rounded corners for both button and border */
   background-clip: padding-box; /* Ensure background does not overlap border */
-  border-image: linear-gradient(to right, #366CE3, #D0FC00) 1; /* Static gradient */
+  border-image: linear-gradient(to right, #366ce3, #d0fc00) 1; /* Static gradient */
   transition: all 0.3s ease-in-out; /* Smooth transition for all properties */
 }
 
 /* Gradient animation */
 @keyframes gradientAnimation {
   0% {
-    border-image: linear-gradient(to right, #366CE3, #D0FC00) 1;
+    border-image: linear-gradient(to right, #366ce3, #d0fc00) 1;
   }
   50% {
-    border-image: linear-gradient(to right, #D0FC00, #366CE3) 1;
+    border-image: linear-gradient(to right, #d0fc00, #366ce3) 1;
   }
   100% {
-    border-image: linear-gradient(to right, #366CE3, #D0FC00) 1;
+    border-image: linear-gradient(to right, #366ce3, #d0fc00) 1;
   }
 }
 
@@ -28,8 +31,26 @@ html {
 .gradient-border:hover {
   animation: gradientAnimation 2s infinite; /* Animation on hover */
 }
-
-
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.bounce {
+  animation: bounce 1s ease 1; /* Bounce 4 times, total duration 1s */
+}
 /* index.css */
 /* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"); */
 

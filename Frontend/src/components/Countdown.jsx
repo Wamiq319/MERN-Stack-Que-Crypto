@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 const Countdown = ({
   timeLeft,
   format = "default",
-  showText = true, // New prop to control visibility of text
-  digitColor = "text-secondaryBlue", // Default color for digits
-  textColor = "text-gray-500", // Default color for text
-  digitSize = "text-4xl", // Default size for digits
-  textSize = "text-lg", // Default size for text
+  showText = true,
+  digitColor = "text-secondaryBlue",
+  textColor = "text-gray-500",
+  digitSize = "text-4xl",
+  textSize = "text-lg",
 }) => {
   const [time, setTime] = useState(timeLeft);
   const [isExpired, setIsExpired] = useState(false);
