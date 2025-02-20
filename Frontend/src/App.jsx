@@ -27,7 +27,7 @@ const App = () => {
         <section className="w-full p-13" id="Wallet">
           <Wallet />
         </section>
-        <section className="w-full p-13" id="RoadMap">
+        <section className="w-full p-13 hidden sm:flex" id="RoadMap">
           <RoadMap />
         </section>
       </main>
