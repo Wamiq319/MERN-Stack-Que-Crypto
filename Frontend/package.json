@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://Wamiq319.github.io/MERN-Stack-Que-Crypto",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
