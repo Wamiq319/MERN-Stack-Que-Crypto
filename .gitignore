@@ -1,0 +1,6 @@
+# Ignore README file
+README.md
+
+# Ignore frontend and backend directories
+Frontend/
+Backend/
