@@ -1,9 +1,10 @@
-const express = require("express");
-const { registerUser, rewardClaim } = require("../controllers/userController");
+import express from "express";
+import { registerUser, rewardClaim } from "../controllers/userController.js";
+
 const router = express.Router();
 
 // Route to register user
 router.get("/user", registerUser);
 router.get("/claim-reward", rewardClaim);
 
-module.exports = router;
+export default router;

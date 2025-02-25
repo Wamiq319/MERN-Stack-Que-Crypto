@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
   walletAddress: { type: String, required: true, unique: true },
@@ -7,37 +7,24 @@ const userSchema = new mongoose.Schema({
   referrals: { type: Number, default: 0 },
   points: { type: Number, default: 50 },
   lastClaimedAt: { type: Date, default: null },
-  ipAddresses: { type: [String], default: [] },
   createdAt: { type: Date, default: Date.now },
 });
 
 // Static method to register a user
-userSchema.statics.Register = async function (
-  walletAddress,
-  ipAddress,
-  referredBy
-) {
+userSchema.statics.Register = async function (walletAddress, referredBy) {
   // Step 1: Check if the user already exists based on the wallet address
   const existingUser = await this.findOne({ walletAddress });
   if (existingUser) {
     return {
       user: sanitizeUserData(existingUser),
-      message:
-        "Welcome back! 🔐 Only one wallet per user allowed. Save your address for future use. 📱",
+      message: "Welcome back!",
     };
-  }
-
-  // Step 2: Check if the user already exists based on the IP address
-  const existingUserByIP = await this.findOne({
-    ipAddresses: { $in: [ipAddress] },
-  });
-  if (existingUserByIP) {
-    return { user: null, message: "One account per user is allowed." };
   }
 
   // Step 3: Generate a unique referral ID
   let referralId = generateReferralId();
   let linkExists = await this.findOne({ referralId });
+
   while (linkExists) {
     referralId = generateReferralId();
     linkExists = await this.findOne({ referralId });
@@ -50,7 +37,6 @@ userSchema.statics.Register = async function (
     referredBy: referredBy || null,
     referrals: 0,
     points: 50,
-    ipAddresses: [ipAddress],
   });
 
   // Step 5: Handle the case where the user was referred by someone
@@ -68,8 +54,7 @@ userSchema.statics.Register = async function (
 
   return {
     user: sanitizeUserData(newUser),
-    message:
-      "Welcome! 🎉 Your account is ready. Save your wallet address 🔑 (only one account per user allowed).",
+    message: "Welcome! Your account is ready.",
   };
 };
 
@@ -133,4 +118,4 @@ function generateReferralId(length = 6) {
 }
 
 // Export the user model
-module.exports = mongoose.model("User", userSchema);
+export default mongoose.model("User", userSchema);

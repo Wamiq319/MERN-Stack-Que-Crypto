@@ -25,17 +25,6 @@ const Wallet = () => {
       setMessage("Wallet Address is required");
       return;
     }
-    if (walletAddress.length !== 25) {
-      setMessage("Wallet address must contain 25 characters only");
-      return;
-    }
-    const pattern = /^[a-zA-Z][a-zA-Z0-9]{23}[0-9]$/;
-    if (!pattern.test(walletAddress)) {
-      setMessage(
-        "Wallet Address must start with a letter, end with a digit, and be exactly 25 characters long, containing alphanumeric characters only."
-      );
-      return;
-    }
 
     setLoading(true);
     setUserDetails(null);
@@ -84,17 +73,6 @@ const Wallet = () => {
       setMessage("Wallet Address is required");
       return;
     }
-    if (walletAddress.length !== 25) {
-      setMessage("Wallet address must contain 25 characters only");
-      return;
-    }
-    const pattern = /^[a-zA-Z][a-zA-Z0-9]{23}[0-9]$/;
-    if (!pattern.test(walletAddress)) {
-      setMessage(
-        "Wallet Address must start with a letter, end with a digit, and be exactly 25 characters long, containing alphanumeric characters only."
-      );
-      return;
-    }
 
     setLoading(true);
     setUserDetails(null);
@@ -112,6 +90,7 @@ const Wallet = () => {
             "walletAddress",
             response.data.user.walletAddress
           );
+          console.log(response.data.message);
           setMessage(response.data.message || "Welcome");
         } else {
           setMessage(
@@ -132,20 +111,6 @@ const Wallet = () => {
       });
   };
 
-  const generateWalletAddress = () => {
-    const characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    const firstCharacter = characters.charAt(Math.floor(Math.random() * 52));
-    let middleCharacters = "";
-    for (let i = 0; i < 23; i++) {
-      const randomIndex = Math.floor(Math.random() * characters.length);
-      middleCharacters += characters[randomIndex];
-    }
-    const lastCharacter = "0123456789".charAt(Math.floor(Math.random() * 10));
-    const walletAddress = firstCharacter + middleCharacters + lastCharacter;
-    setWalletAddress(walletAddress);
-  };
-
   return (
     <div className="max-w-4xl sm:mx-auto mx-2 px-4 py-6 bg-transparent rounded-lg">
       <div
@@ -164,14 +129,8 @@ const Wallet = () => {
                 value={walletAddress || ""}
                 onChange={handleWalletAddressChange}
                 className="mt-4 px-4 py-2 border rounded-md flex-1 min-w-[200px] h-12 focus:border-blue-400 transition-all duration-300"
-                placeholder="Enter your wallet address"
+                placeholder="Enter your Sol wallet address"
               />
-              <button
-                onClick={generateWalletAddress}
-                className="mt-4 px-6 py-2 text-sm text-green-400 border border-green-400 rounded-lg min-w-[120px] h-12 transition-all duration-300 transform hover:scale-105 hover:bg-green-500 hover:text-white hover:shadow-lg"
-              >
-                Generate
-              </button>
             </div>
 
             <button
@@ -222,7 +181,7 @@ const Wallet = () => {
                 <h4 className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400">
                   Daily Claim
                 </h4>
-                {userDetails.canClaimToday ? (
+                {userDetails.canClaimToday == true ? (
                   <div className="flex justify-between items-center">
                     <p className="text-xl sm:text-lg text-textBlack">
                       10 Points
@@ -266,11 +225,19 @@ const Wallet = () => {
 
             {/* Buttons - Full width on mobile */}
             <div className="flex flex-col sm:flex-row justify-between mt-6 space-y-3 sm:space-y-0 sm:space-x-4">
-              <button className="w-full sm:w-auto px-6 py-2 text-sm sm:text-base text-green-400 border border-green-400 rounded-lg transition-all duration-300 transform hover:scale-105 hover:bg-green-500 hover:text-white hover:shadow-lg">
+              <button
+                className="w-full sm:w-auto px-6 py-2 text-sm sm:text-base text-green-400 border border-green-400 rounded-lg transition-all duration-300 transform hover:scale-105 hover:bg-green-500 hover:text-white hover:shadow-lg"
+                onClick={() =>
+                  alert("Withdraw is not available, will be available soon")
+                }
+              >
                 Withdraw
               </button>
               <button
-                onClick={() => setUserDetails(null)}
+                onClick={() => {
+                  setUserDetails(null);
+                  setMessage(null);
+                }}
                 className="w-full sm:w-auto px-6 py-2 text-sm sm:text-base text-red-400 border border-red-400 rounded-lg transition-all duration-300 transform hover:scale-105 hover:bg-red-500 hover:text-white hover:shadow-lg"
               >
                 Logout

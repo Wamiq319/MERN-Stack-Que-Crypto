@@ -1,8 +1,8 @@
 // Import necessary modules
-require("dotenv").config();
-const express = require("express");
-const mongoose = require("mongoose");
-const userRoutes = require("./routes/userRoutes");
+import "dotenv/config"; // For dotenv configuration
+import express from "express";
+import mongoose from "mongoose";
+import userRoutes from "./routes/userRoutes.js"; // <-- Added .js extension here
 
 // Step 1: Use environment variables
 const PORT = process.env.PORT || 5000; // Fallback to 5000 if PORT is not set
