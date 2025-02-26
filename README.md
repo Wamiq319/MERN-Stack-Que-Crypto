@@ -1,17 +1,15 @@
-# **Que Referral and Earn System**
+# **Que BlockChain System**
 
 ## **Project Overview**
 
-The **Referral and Earn System** is a simple web application designed to allow users to:
+The **Que** is a simple web application designed to allow users to:
 
-- **Add a wallet address**
+- **Add a Solana wallet address**
 - **Generate a unique referral link** associated with that wallet address
 - **Track their balance**, which increases when others use their referral link
-- **Earn points** when successful referrals occur
+- **Earn points** and claim **airdrops** for successful referrals
 
-This system focuses on the referral mechanism, without any integration with third-party apps like Telegram. It is a stand-alone app to handle user referrals and point accumulation.
-
----
+This stand-alone system focuses on referral tracking, point accumulation, and airdrop distribution, with no integration with third-party apps like Solana blockCHain. Built with Web3.js, it ensures a seamless and secure referral process.
 
 ## **Problem Statement**
 
