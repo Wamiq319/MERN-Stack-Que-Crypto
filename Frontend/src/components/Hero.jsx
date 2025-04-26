@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Countdown from "./CountDown";
+import Countdown from "./Countdown";
 
 const Hero = () => {
   const [timeLeft, setTimeLeft] = useState(null);
